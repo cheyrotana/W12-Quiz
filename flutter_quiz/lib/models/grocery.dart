@@ -1,20 +1,21 @@
 import 'dart:ui';
- 
+import 'package:uuid/uuid.dart';
+
+const uuid = Uuid();
 
 class Grocery {
-  const Grocery({
-    required this.id,
+  Grocery({
+    String? id,
     required this.name,
     required this.quantity,
     required this.category,
-  });
+  }) : id = id ?? uuid.v4();
 
   final String id;
   final String name;
   final int quantity;
   final GroceryCategory category;
 }
-
 
 enum GroceryCategory {
   vegetables('Vegetables', Color.fromARGB(255, 0, 255, 128)),
